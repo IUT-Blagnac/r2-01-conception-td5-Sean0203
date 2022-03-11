@@ -1,0 +1,20 @@
+@startuml uc
+
+package système_informatique{
+    usecase u1 as "Calculer paye"
+    usecase u2 as "Gérer ses chantiers"
+    usecase u3 as "Gérer ses artisans"
+    usecase u4 as "Calculer la paye"
+}
+
+actor Entreprise 
+actor Salarié
+
+Entreprise --> u1
+Entreprise --> u2 
+Entreprise --> u3 
+Entreprise --> u4
+
+Salarié -> Entreprise : être employé
+
+@enduml

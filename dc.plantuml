@@ -1,0 +1,46 @@
+@startuml dc
+
+skinparam roundcorner 3
+
+skinparam class {
+    BorderColor Black
+    ArrowColor Black
+    FontColor Black
+    FontSize 12
+    FontName Arial
+}
+
+class Entreprise {
+
+}
+
+
+class Artisan {
+    specialite: String
+    salaireH: double
+    numTel: int
+    adresse: String
+    email: String
+}
+
+class Chantier {
+    dateD: String
+    dateF: String
+    adresse: String
+}
+
+class Affecter {
+    debutMission: String
+    finMission: String
+    nbHeures: double
+    {method}getPaye()
+    
+}
+
+Entreprise "1" - "*" Artisan : Gérer
+Entreprise "1" - "0..*" Chantier : Gérer
+Artisan "1..*" -- "0..*" Chantier
+
+(Artisan, Chantier) . Affecter
+
+@enduml
